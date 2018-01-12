@@ -2,7 +2,8 @@ module AhoyView
 
     extend ActiveSupport::Concern
 
-    included do
+    module ClassMethods
+
         def ahoy_view
             before_create :process_view
 
@@ -18,6 +19,7 @@ module AhoyView
 
             include AhoyViews::InstanceMethods
         end
+        
     end
 
     module InstanceMethods

@@ -2,7 +2,8 @@ module AhoyViewable
 
     extend ActiveSupport::Concern
 
-    included do
+    module ClassMethods
+
         def ahoy_viewable
             has_many :ahoy_views, as: :visited, class_name: 'Ahoy::Event'
             has_many :ahoy_viewers, through: :ahoy_views, source: :visitor
@@ -11,6 +12,7 @@ module AhoyViewable
 
             include AhoyViews::InstanceMethods
         end
+        
     end
 
     module InstanceMethods
