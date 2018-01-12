@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
 
     gem.add_dependency 'railties', '>= 5.0'
     gem.add_dependency 'activerecord', '>= 5.0'
-    gem.add_dependency 'actionview', '>= 5.0'
+    gem.add_dependency 'actionpack', '>= 5.0'
     gem.add_dependency 'activesupport', '>= 5.0'
     gem.add_dependency 'ahoy_matey', '~> 1.6'
 
