@@ -1,0 +1,8 @@
+class AhoyViewsMigration < ActiveRecord::Migration<%= migration_version %>
+    def change
+        add_column :ahoy_events, :visitor_id, :bigint, index: true
+        add_column :ahoy_events, :visitor_type, :string, index: true
+        add_column :ahoy_events, :visited_id, :bigint, index: true
+        add_column :ahoy_events, :visited_type, :string, index: true
+    end
+end
