@@ -10,9 +10,9 @@ module AhoyViewable
 
             scope :trending, -> { left_joins(:views).group(:id).order('count(views.id) desc') }
 
-            include AhoyViews::InstanceMethods
+            include AhoyViewable::InstanceMethods
         end
-        
+
     end
 
     module InstanceMethods
