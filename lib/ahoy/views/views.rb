@@ -19,7 +19,7 @@ module Ahoy
                     scope :visited_in_session, -> (visit) { where visit_id: visit.id }
                     scope :visited, -> (visitor) { where visitor_id: visitor.id, visitor_type: visitor.class.name }
 
-                    include AhoyView::InstanceMethods
+                    include Ahoy::Views::Views::InstanceMethods
                 end
 
             end
