@@ -10,6 +10,10 @@ Track views of ActiveRecord objects in Rails. Ahoy Views depends on [Ahoy](https
 
 * [Installation](#installation)
 * [Usage](#usage)
+    * [Tracking](#tracking)
+        * [Types](#types)
+    * [`ahoy_viewable`](#ahoy_viewable)
+    * [`ahoy_viewer`](#ahoy_viewer)
 * [To Do](#to-do)
 * [Contributing](#contributing)
     * [Contributors](#contributors)
@@ -46,11 +50,27 @@ Now run the generator:
 
     $ rails g ahoy_views
 
+Lastly make sure to call `ahoy_views` from your `Ahoy::Event` class:
+
+```ruby
+module Ahoy
+    class Event < ApplicationRecord
+        ahoy_views
+    end
+end
+```
+
 ---
 
 ## Usage
 
-...
+### Tracking
+
+#### Types
+
+### `ahoy_viewable`
+
+### `ahoy_viewer`
 
 ---
 
