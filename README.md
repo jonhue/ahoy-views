@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/ahoy-views.svg)](https://badge.fury.io/rb/ahoy-views) <img src="https://travis-ci.org/jonhue/ahoy-views.svg?branch=master" />
 
-Track views of ActiveRecord objects in Rails.
+Track views of ActiveRecord objects in Rails. Ahoy Views depends on [Ahoy](https://github.com/ankane/ahoy).
 
 ---
 
@@ -19,6 +19,8 @@ Track views of ActiveRecord objects in Rails.
 ---
 
 ## Installation
+
+**Note:** Before installing Ahoy Views make sure to setup the original [Ahoy](https://github.com/ankane/ahoy) gem.
 
 Ahoy Views works with Rails 5 onwards. You can add it to your `Gemfile` with:
 
