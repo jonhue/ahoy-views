@@ -8,9 +8,9 @@ module AhoyViewer
             has_many :ahoy_visits, as: :visitor, class_name: 'Ahoy::Event'
             has_many :ahoy_viewed, through: :ahoy_visits, source: :visited
 
-            include AhoyViews::InstanceMethods
+            include AhoyViewer::InstanceMethods
         end
-        
+
     end
 
     module InstanceMethods
