@@ -102,13 +102,13 @@ Here is a list of available types:
 
 * `:visit` stores every call to `ahoy_view` for an object.
 
-* `:visitor` stores only one call per visit to `ahoy_view`.
+* `:visitor` stores only one view per visit.
 
-* `:returnee` ...
+* `:returnee` stores only one view per visit if the visitor has viewed the object before.
 
-* `:unique_visitor` ...
+* `:unique_visitor` stores only one view per visitor.
 
-* `:unique_returnee` ...
+* `:unique_returnee` stores only one view per visitor if the visitor has viewed the object before.
 
 ### `ahoy_viewable`
 
