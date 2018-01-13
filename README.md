@@ -38,7 +38,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ahoy_views
+    $ gem install ahoy-views
 
 If you always want to be up to date fetch the latest from GitHub in your `Gemfile`:
 
