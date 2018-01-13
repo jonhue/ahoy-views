@@ -32,13 +32,13 @@ module Ahoy
                     if self.visited && self.name
                         case self.name
                         when 'visitor'
-                            return false if self.class.visitors.visited_in_session.where(visited_id: visited.id, visited_type: visited.class.name).any?
+                            return false if self.class.visitors.visited_in_session(self.visit).where(visited_id: visited.id, visited_type: visited.class.name).any?
                         when 'returnee'
-                            return false if self.class.returnees.visited_in_session.where(visited_id: visited.id, visited_type: visited.class.name).any? && !self.class.visited.where(visited_id: visited.id, visited_type: visited.class.name).any?
+                            return false if self.class.returnees.visited_in_session(self.visit).where(visited_id: visited.id, visited_type: visited.class.name).any? && !self.class.visited(self.visitor).where(visited_id: visited.id, visited_type: visited.class.name).any?
                         when 'unique_visitor'
-                            return false if self.class.visitors.visited.where(visited_id: visited.id, visited_type: visited.class.name).any?
+                            return false if self.class.visitors.visited(self.visitor).where(visited_id: visited.id, visited_type: visited.class.name).any?
                         when 'unique_returnee'
-                            return false if self.class.returnees.visited.where(visited_id: visited.id, visited_type: visited.class.name).any? && !self.class.visited.where(visited_id: visited.id, visited_type: visited.class.name).any?
+                            return false if self.class.returnees.visited(self.visitor).where(visited_id: visited.id, visited_type: visited.class.name).any? && !self.class.visited(self.visitor).where(visited_id: visited.id, visited_type: visited.class.name).any?
                         end
                     end
                 end

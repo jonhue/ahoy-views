@@ -66,11 +66,97 @@ end
 
 ### Tracking
 
+You can track views for ActiveRecord objects from your controllers:
+
+```ruby
+class ArticleController < ApplicationController
+
+    def index
+        @articles = Article.all
+        ahoy_view @articles
+    end
+
+    def show
+        @article = Article.find params[:id]
+        ahoy_view @article
+    end
+
+end
+```
+
+**Note:** This will create an `Ahoy::Event` object for every record passed.
+
+The `current_visit` object, if present, will be automatically associated with every visit.
+
+You are also able to associate other records with views. [Learn more](#ahoy_viewer).
+
 #### Types
+
+You can pass an array of `types` to `ahoy_view`. Types allow you to track multiple types of visits. The `:types` option defaults to `[:visit]`.
+
+```ruby
+ahoy_view @article, types: [:view, :visitor, :returnee, :unique_visitor, :unique_returnee]
+```
+
+Here is a list of available types:
+
+* `:visit` stores every call to `ahoy_view` for an object.
+
+* `:visitor` stores only one call per visit to `ahoy_view`.
+
+* `:returnee` ...
+
+* `:unique_visitor` ...
+
+* `:unique_returnee` ...
 
 ### `ahoy_viewable`
 
+Add `ahoy_viewable` to an ActiveRecord class.
+
+```ruby
+class Article < ApplicationRecord
+    ahoy_viewable
+end
+
+a = Article.first
+
+# All belonging Ahoy::Event objects that are a view
+a.ahoy_views
+
+# All viewer records that have a view object
+a.ahoy_viewers
+
+# Scope to order Article records by views
+Article.trending
+
+# Whether or not a is one of the 5 "most trending" articles
+a.trending? 5
+```
+
 ### `ahoy_viewer`
+
+Add `ahoy_viewer` to an ActiveRecord class.
+
+```ruby
+class User < ApplicationRecord
+    ahoy_viewer
+end
+
+u = User.first
+
+# All belonging Ahoy::Event objects that are a view
+u.ahoy_visits
+
+# All records that this user has taken a look at
+u.ahoy_viewed
+```
+
+Here is how to associate a viewer with a view:
+
+```ruby
+ahoy_view @article, viewer: current_user
+```
 
 ---
 
