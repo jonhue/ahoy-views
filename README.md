@@ -92,7 +92,7 @@ You are also able to associate other records with views. [Learn more](#ahoy_view
 
 #### Types
 
-You can pass an array of `types` to `ahoy_view`. Types allow you to track multiple types of visits. The `:types` option defaults to `[:visit]`.
+You can pass an array of `types` to `ahoy_view`. Types allow you to track multiple types of visits. The `:types` option defaults to `[:view]`.
 
 ```ruby
 ahoy_view @article, types: [:view, :visitor, :returnee, :unique_visitor, :unique_returnee]
@@ -100,7 +100,7 @@ ahoy_view @article, types: [:view, :visitor, :returnee, :unique_visitor, :unique
 
 Here is a list of available types:
 
-* `:visit` stores every call to `ahoy_view` for an object.
+* `:view` stores every call to `ahoy_view` for an object.
 
 * `:visitor` stores only one view per visit.
 
